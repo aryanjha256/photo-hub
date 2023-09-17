@@ -9,6 +9,7 @@ import Link from "next/link";
 import cloudinary from "cloudinary";
 import { Folder } from "./albums/page";
 import Image from "next/image";
+import "@/lib/connect";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,24 +30,25 @@ export default function RootLayout({
           <div className="flex h-16 items-center px-4 container mx-auto">
             <Image
               src="/logo.svg"
-              width="28"
-              height="28"
+              width="32"
+              height="32"
               alt="icon of photo hub app"
             />
-            Photo Hub
+            <span className="px-4">Photo Hub</span>
+
             <div className="ml-auto flex items-center space-x-4">
               <Avatar>
                 <AvatarImage
                   src="https://github.com/shadcn.png"
                   alt="@shadcn"
                 />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback>AK</AvatarFallback>
               </Avatar>
             </div>
           </div>
         </div>
         <div className="flex">
-          {/* <SideMenu /> */}
+          <SideMenu />
           <div className="w-full px-4 pt-8">{children}</div>
         </div>
       </body>
