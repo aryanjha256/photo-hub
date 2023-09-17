@@ -1,4 +1,5 @@
 import React from "react";
+import UploadButton from "./UploadButton";
 
 const GalleryPage = () => {
   return (
@@ -7,7 +8,7 @@ const GalleryPage = () => {
         <div className="flex flex-col gap-8">
           <div className="flex justify-between">
             <h1 className="text-4xl font-bold">Gallery</h1>
-            {/* <UploadButton /> */}
+            <UploadButton />
           </div>
 
           {/* <SearchForm initialSearch={search} />
