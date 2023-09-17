@@ -2,6 +2,13 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SideMenu from "@/components/SideMenu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Heart } from "@/components/icons/heart";
+import Link from "next/link";
+import cloudinary from "cloudinary";
+import { Folder } from "./albums/page";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,15 +27,27 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="border-b">
           <div className="flex h-16 items-center px-4 container mx-auto">
+            <Image
+              src="/logo.svg"
+              width="28"
+              height="28"
+              alt="icon of photo hub app"
+            />
             Photo Hub
             <div className="ml-auto flex items-center space-x-4">
-              User Details
+              <Avatar>
+                <AvatarImage
+                  src="https://github.com/shadcn.png"
+                  alt="@shadcn"
+                />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
             </div>
           </div>
         </div>
         <div className="flex">
-          <SideMenu />
-          <div>{children}</div>
+          {/* <SideMenu /> */}
+          <div className="w-full px-4 pt-8">{children}</div>
         </div>
       </body>
     </html>

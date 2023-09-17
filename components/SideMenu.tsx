@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { Folder } from "@/app/albums/page";
+import cloudinary from "cloudinary";
+import { Heart } from "./icons/heart";
 
 async function SideMenu() {
-  // const { folders } = (await cloudinary.v2.api.root_folders()) as {
-  //   folders: Folder[];
-  // };
+  const { folders } = (await cloudinary.v2.api.root_folders()) as {
+    folders: Folder[];
+  };
 
   return (
     <div className="pb-12 w-1/5">
@@ -60,25 +63,25 @@ async function SideMenu() {
                 Albums
               </Link>
             </Button>
-            {/* {folders.map((folder) => (
-                <Button
-                  variant="ghost"
-                  asChild
-                  key={folder.name}
-                  className="w-full justify-start flex gap-2"
-                >
-                  <Link className="pl-8" href={`/albums/${folder.path}`}>
-                    {folder.name}
-                  </Link>
-                </Button>
-              ))} */}
+            {folders.map((folder) => (
+              <Button
+                variant="ghost"
+                asChild
+                key={folder.name}
+                className="w-full justify-start flex gap-2"
+              >
+                <Link className="pl-8" href={`/albums/${folder.path}`}>
+                  {folder.name}
+                </Link>
+              </Button>
+            ))}
             <Button
               asChild
               variant="ghost"
               className="w-full justify-start flex gap-2"
             >
               <Link href="/favorites">
-                {/* <Heart /> */}
+                <Heart />
                 Favorites
               </Link>
             </Button>
